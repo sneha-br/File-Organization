@@ -1,0 +1,4 @@
+from PyDictionary import PyDictionary
+dictionary=PyDictionary()
+a=input("enter the word:")
+print(dictionary.meaning(a))

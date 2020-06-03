@@ -1,0 +1,62 @@
+
+import time
+print("do you want to c indexing?y/n")
+q=input()
+start1=time.time()
+if(q=='y'):
+    l=input("enter word")
+    with open(r"C:\Users\JIT\Desktop\fsmini.txt","r") as pack:
+        with open(r"C:\Users\JIT\Desktop\index2.txt","w") as index:
+            count=0
+            f=pack.read()
+            s=f.replace("\n"," ")
+            for line in s.split(" "):
+                stri=line[:]
+                index.write(stri+" ")
+                c=str(count)
+                index.write(c + "\n")
+                count=len(line) + count
+end1=time.time()
+print("indexing complete in:",end1-start1,'milliseconds')
+
+print("indexing completed")
+
+print("do u want to search?y/n")
+question1=input()
+start2=time.time()
+if(question1=='y'):
+   f1=open(r"C:\Users\JIT\Desktop\fsmini.txt",encoding="utf8", errors='ignore')
+   word=input("enter the word to be searched:")
+   s=""
+   count=1
+   s=f1.readline()
+   l=s.split()
+   print(l)
+   while(s):
+      s=f1.readline()
+      l=s.split()
+      if word in l:
+          print("line number:",count,":",s)
+          count+=1
+end2=time.time()
+print("searching completed in:" , end2-start2,'milliseconds')
+
+if word not in l:
+  print("word not present")
+question=input("do u want to modify y/n:") 
+
+if question=='y':
+   f1=open(r"C:\Users\JIT\Desktop\fsmini.txt",encoding="utf8", errors='ignore')
+   data=f1.read()
+   linenumber=int(input("enter the line number to be modified"))
+   f2=input("enter the word:")
+   f3=input("enter the modified word:")
+   
+   replaced_value=data.replace(f2,f3)
+
+   f1=open(r"C:\Users\JIT\Desktop\fsmini.txt","wt")
+   f1.write(replaced_value)
+   f1.close()
+   print("modified sucessfully")
+else:
+   print("end of program")
